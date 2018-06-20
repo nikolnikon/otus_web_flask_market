@@ -7,7 +7,6 @@ class Config:
     SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:12345678@localhost/products'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     SECRET_KEY = 'dev'
-    SQLALCHEMY_ECHO = True
 
 
 class ProductionConfig(Config):
@@ -16,3 +15,4 @@ class ProductionConfig(Config):
 
 class DevelopmentConfig(Config):
     DEBUG = True
+    SQLALCHEMY_ECHO = True

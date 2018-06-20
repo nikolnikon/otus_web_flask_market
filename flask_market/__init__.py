@@ -7,7 +7,7 @@ def create_app():
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_object('config.DevelopmentConfig')
 
-    from flask_market.models import db, migrate
+    from flask_market.products.models import db, migrate
     db.init_app(app)
     migrate.init_app(app, db, 'migrations')
 
