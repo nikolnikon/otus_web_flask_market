@@ -1,5 +1,5 @@
 from flask import Flask
-#from . import products
+from .products import products_app
 
 
 def create_app():
@@ -11,6 +11,7 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db, 'migrations')
 
-    # app.register_blueprint(products.products_app, url_prefix='/products')
+    from flask_market.products import controllers
+    app.register_blueprint(products_app, url_prefix='/products')
 
     return app

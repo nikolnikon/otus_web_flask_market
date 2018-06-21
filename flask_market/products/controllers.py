@@ -1,7 +1,21 @@
-from flask import Blueprint
+from flask import render_template
+from . import products_app
+from flask_market.products.models import Product
 
-products_app = Blueprint('products_app', __name__)
 
 @products_app.route('/')
-def products_list():
-    pass
+def products():
+    return 'HREN!'
+
+
+@products_app.route('/<int:id>')
+def product(id):
+    if not id:
+        # Запросить список товаров из БД
+        # Отрендерить страницу со списком товаров
+        pass
+    else:
+        # Запросить из БД конкретный товар
+        # Отрендерить страницу одного товара
+        product = Product.query.get_or_404(id)
+        # return render_template('products/product.htm', product=product)
