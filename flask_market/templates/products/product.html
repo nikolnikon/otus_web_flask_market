@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Кроссовки Salomon Sense Pro 2.
+    {{ product.name }}.
 {% endblock %}
 
 {% block content %}
     <div class="container-fluid mt-5">
-        <h1>Кроссовки Salomon Sense Pro 2</h1>
+        <h1>{{ product.name }}</h1>
         <div class="row">
             <div class="col-12">
                 <ul class="nav nav-pills mt-4 mb-4" id="product_menu" role="tablist">
@@ -77,15 +77,14 @@
                                 </div>
                                 <div class="col">
                                     <p>
-                                        Найдите идеальный баланс между легким, чувствительным касанием тропы, необходимой
-                                        амортизацией и защитой, которые позволят вам бежать километр за километром. С легкими
-                                        трейлраннинговыми кроссовками SENSE PRO 2 бег подарит вам спокойствие нирваны.
+                                        {{ product.description }}
                                     </p>
                                     <p>
                                         <strong>Коротко о товаре</strong>
                                         <ul>
-                                            <li>Производитель: Salomon</li>
-                                            <li>Цвет: красный</li>
+                                            {% for feature in product.features['features'][1:6] %}
+                                                <li>{{ feature['name'] }}: {{ feature['value'] }}</li>
+                                            {% endfor %}
                                         </ul>
                                     </p>
 
@@ -98,7 +97,7 @@
                                         </div>
                                         <div class="card-body">
                                             <p class="card-text">
-                                                <span>8990 руб.</span>
+                                                <span>{{ product.price }} руб.</span>
                                                 <br/><span>В наличии</span>
                                             </p>
                                             <a href="#" class="btn btn-primary">Купить</a>
@@ -113,20 +112,18 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-2">
-                                    <img class="d-block w-100" src="http://via.placeholder.com/800x400">
+                                    <img class="d-block w-100" src="{{ url_for('static', filename='images/products/%(id)d/product_%(id)d_1.jpg'|format(id=product.id)) }}">
                                 </div>
                                 <div class="col">
                                     <table class="table">
                                         <caption>Подробные характеристики</caption>
                                         <tboby>
-                                            <tr>
-                                                <th scope="row">Производитель</th>
-                                                <td>Salomon</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Тип</th>
-                                                <td>Кроссовки</td>
-                                            </tr>
+                                            {% for feature in product.features['features'] %}
+                                                <tr>
+                                                    <th scope="row">{{ feature['name'] }}</th>
+                                                    <td>{{ feature['value'] }}</td>
+                                                </tr>
+                                            {% endfor %}
                                         </tboby>
                                     </table>
                                 </div>
@@ -137,7 +134,7 @@
                                         </div>
                                         <div class="card-body">
                                             <p class="card-text">
-                                                <span>8990 руб.</span>
+                                                <span>{{ product.price }} руб.</span>
                                                 <br/><span>В наличии</span>
                                             </p>
                                             <a href="#" class="btn btn-primary">Купить</a>

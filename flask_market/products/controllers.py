@@ -10,14 +10,5 @@ def get_products_list():
 
 @products_app.route('/<int:id>')
 def get_product(id):
-    # if not id:
-    #     # Запросить список товаров из БД
-    #     # Отрендерить страницу со списком товаров
-    #     pass
-    # else:
-    #     # Запросить из БД конкретный товар
-    #     # Отрендерить страницу одного товара
-    #     product = Product.query.get_or_404(id)
-    #     # return render_template('products/product.htm', product=product)
-
-    return render_template('products/product.html')
+    product = Product.query.get_or_404(id)
+    return render_template('products/product.html', product=product)
