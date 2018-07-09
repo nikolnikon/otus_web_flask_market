@@ -5,7 +5,9 @@ from flask_market.products.models import Product
 
 @products_app.route('/')
 def get_products_list():
-    return render_template('products/products_list.html')
+    # todo Здесь было бы неплохо добавить пагинацию, но я уже видеть не могу этот магазин
+    products = Product.query.all()
+    return render_template('products/products_list.html', products=products)
 
 
 @products_app.route('/<int:id>')
