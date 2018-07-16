@@ -88,7 +88,7 @@
                                     <p>
                                         <strong>Коротко о товаре</strong>
                                         <ul>
-                                            {% for feature in product.features['features'][1:6] %}
+                                            {% for feature in features['features'][1:6] %}
                                                 <li>{{ feature['name'] }}: {{ feature['value'] }}</li>
                                             {% endfor %}
                                         </ul>
@@ -128,7 +128,7 @@
                                     <table class="table">
                                         <caption>Подробные характеристики</caption>
                                         <tboby>
-                                            {% for feature in product.features['features'] %}
+                                            {% for feature in features['features'] %}
                                                 <tr>
                                                     <th scope="row">{{ feature['name'] }}</th>
                                                     <td>{{ feature['value'] }}</td>

@@ -18,4 +18,7 @@ def create_app():
     from flask_market.products import controllers
     app.register_blueprint(products_app, url_prefix='/products')
 
+    from flask_market.fixtures import user_cli
+    app.cli.add_command(user_cli)
+
     return app

@@ -1,0 +1,6 @@
+- table: market.categories
+  records:
+  - id: 1
+    name: Обувь для бега
+  - id: 2
+    name: Электроника

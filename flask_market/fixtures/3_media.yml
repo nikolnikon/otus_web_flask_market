@@ -1,0 +1,26 @@
+- table: market.media
+  records:
+  - id: 1
+    path: images/products/product_1_1.jpg
+    is_main: true
+    product_id: 1
+  - id: 2
+    path: images/products/product_1_2.jpg
+    is_main: false
+    product_id: 1
+  - id: 3
+    path: images/products/product_1_3.jpg
+    is_main: false
+    product_id: 1
+  - id: 4
+    path: images/products/product_2_1.jpg
+    is_main: true
+    product_id: 2
+  - id: 5
+    path: images/products/product_2_2.jpg
+    is_main: false
+    product_id: 2
+  - id: 6
+    path: images/products/product_2_3.jpg
+    is_main: false
+    product_id: 2
