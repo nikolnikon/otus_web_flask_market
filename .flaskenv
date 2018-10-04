@@ -1,0 +1,2 @@
+FLASK_APP=flask_market
+FLASK_ENV=development

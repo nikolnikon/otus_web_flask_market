@@ -1,6 +1,6 @@
 - table: market.categories
   records:
   - id: 1
-    name: РћР±СѓРІСЊ РґР»СЏ Р±РµРіР°
+    name: Обувь для бега
   - id: 2
-    name: Р­Р»РµРєС‚СЂРѕРЅРёРєР°
+    name: Электроника

@@ -1,5 +1,4 @@
 import glob
-import click
 import os
 from flask import current_app
 from flask.cli import AppGroup
@@ -17,6 +16,3 @@ def load_fixtures_():
         for fixture_file in sorted(glob.glob(fixture_dir + '/*.yml')):
             fixtures = YAMLLoader().load(fixture_file)
             load_fixtures(db, fixtures)
-
-    # click.echo(f'Fixtures were done')
-

@@ -7,4 +7,4 @@ services:
       - 5432:5432
     environment:
       POSTGRES_PASSWORD: 12345678
-      POSTGRES_DB: products
+      POSTGRES_DB: flask_market

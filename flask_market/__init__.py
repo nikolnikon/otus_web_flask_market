@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from .products import products_app
 from .admin import admin
@@ -6,7 +7,14 @@ from .admin import admin
 def create_app():
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
-    app.config.from_object('config.DevelopmentConfig')
+    configuration = os.getenv('FLASK_ENV')
+    if configuration == 'development':
+        app.config.from_object('config.DevelopmentConfig')
+    elif configuration == 'production':
+        app.config.from_object('config.ProductionConfig')
+    else:
+        # кинуть ошибку, что неизвестная конфигурация
+        pass
 
     from flask_market.products.models import db, migrate
     db.init_app(app)

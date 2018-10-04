@@ -1,19 +1,17 @@
-# todo Сделать загрузку параметров из файла или переменных окружения
+import os
 
 
 class Config:
-    DEBUG = False
     TESTING = False
-    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:12345678@localhost/products'
+    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URI', 'postgresql://postgres:12345678@localhost/flask_market')
     SQLALCHEMY_TRACK_MODIFICATIONS = True
-    SECRET_KEY = 'dev'
 
 
 class ProductionConfig(Config):
-    pass
+    SECRET_KEY = os.getenv('SECRET_KEY', 'long_and_random_string')
 
 
 class DevelopmentConfig(Config):
-    DEBUG = True
     SQLALCHEMY_ECHO = True
     TESTING = True
+    SECRET_KEY = 'dev'
